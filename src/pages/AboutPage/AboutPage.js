@@ -1,12 +1,11 @@
 import React from "react";
 import { Header } from "../../commons/components/Header/Header";
 
-export const LoginPage = ()=>{
+export const AboutPage = ()=>{
     return <div>
         <Header />
-
         <p> 
-            LoginPage
+            AboutPage
         </p>
     </div>
 }

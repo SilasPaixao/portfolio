@@ -2,6 +2,10 @@ export const goToHome = (navigate)=>{
     navigate("/");
 }
 
+export const goToAbout = (navigate)=>{
+    navigate("/sobre");
+}
+
 export const goToArticles = (navigate)=>{
     navigate("/artigos");
 }
