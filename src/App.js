@@ -1,16 +1,15 @@
 import React from "react";
 import { Router } from "./setup/app-routes-manager/Router"
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from "./constants/theme";
 import CssBaseline from '@mui/material/CssBaseline';
+import { GeneralContext } from "./setup/app-context-manager/GeneralContext";
 
 const App = () => {
-  return <>
-    <ThemeProvider theme={theme}>
+  return <GeneralContext>{/* Provides all common states 
+                          and Material-ui theme  */}
+    
       <CssBaseline />
       <Router />
-    </ThemeProvider>
-  </>
+  </GeneralContext>
   
 }
 

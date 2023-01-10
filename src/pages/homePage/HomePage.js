@@ -1,10 +1,20 @@
-import React from "react";
+import React,{ useContext } from "react";
 import { Header } from "../../commons/components/Header/Header";
+import { UpBar } from "../../commons/components/UpBar/UpBar";
+import { Context } from "../../setup/app-context-manager/Context";
+
+
 export const HomePage = ()=>{
+
+    const { loadingPage } = useContext(Context)
+
+    if(loadingPage){
+        return <p>Carregando...</p>
+    }
+
+
     return <div>
-        <p> 
-            admin
-        </p>
+        <UpBar/>
         <Header />
         <p> 
             HomePage
@@ -95,129 +105,7 @@ export const HomePage = ()=>{
             HomePage
         </p>
         <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p><p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
-        </p>
-        <p> 
-            HomePage
+        
         </p><p> 
             HomePage
         </p>

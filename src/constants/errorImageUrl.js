@@ -1,1 +1,0 @@
-export const errorImgUlr = 'https://i.postimg.cc/Nj185HyN/404error.png';

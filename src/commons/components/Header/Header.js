@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { BarContainer, NeutralLink } from './styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -19,10 +20,12 @@ import { goToAbout, goToArticles, goToHome, goToLogin } from '../../../setup/app
 import { cvUrl, githubUrl, linkedinUlr } from "../../../constants/contatos-cvURLs";
 import { primaryColor, primaryColorHover } from '../../../constants/colorsPallet';
 import { authorImgUrl } from "../../../constants/authorImageURL";
-import { theme } from '../../../constants/theme';
+import { Context } from '../../../setup/app-context-manager/Context';
+
+
 
 export const Header = () => {
-  const darkMode = true;
+  const {logged} = useContext(Context)
   const navigate = useNavigate()
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -59,9 +62,8 @@ export const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon sx={{color:'#fff'}}/>
             </IconButton>
 
             <Menu
@@ -80,6 +82,7 @@ export const Header = () => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                ".MuiMenu-paper":{backgroundColor:'#232323', color:'#fff'}
               }}
             >
               
@@ -132,28 +135,38 @@ export const Header = () => {
                  artigos
               </Button>
 
-
-              <Button
-                sx={{ my: 2, backgroundColor:`${primaryColor}`,
-                "&:hover":{backgroundColor:`${primaryColorHover}`, color:'#000'},
-                color:'#fff', display: 'block', marginRight: '10px' }}
-                onClick={()=>{goToLogin(navigate)}}
-              >
-                <LoginIcon /> login
-              </Button>
-
+              {logged
+                ?
+                  <Button
+                    sx={{ my: 2, backgroundColor:`${primaryColor}`,
+                    "&:hover":{backgroundColor:`${primaryColorHover}`, color:'#000'},
+                    color:'#fff', display: 'block', marginRight: '10px' }}
+                    onClick={()=>{goToLogin(navigate)}}
+                  >
+                    <LoginIcon /> logIn
+                  </Button>
+                :
+                  <Button
+                    sx={{ my: 2, backgroundColor:`${primaryColor}`,
+                    "&:hover":{backgroundColor:`${primaryColorHover}`, color:'#000'},
+                    color:'#fff', display: 'block', marginRight: '10px' }}
+                    onClick={()=>{goToLogin(navigate)}}
+                  >
+                    <LogoutIcon /> logOut
+                  </Button>
+              }
           </Box>
 
           {/*social menu*/}
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+          <Box sx={{ flexGrow: 0}}>
+            <Tooltip title="Menu Social">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Author image" src={ authorImgUrl } />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px', ".MuiMenu-paper":{backgroundColor:'#232323'}}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
