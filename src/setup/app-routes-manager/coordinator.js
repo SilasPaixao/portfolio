@@ -17,3 +17,7 @@ export const goToLogin = (navigate)=>{
 export const goToAdmin = (navigate)=>{
     navigate("/admin");
 }
+
+export const goToAdminCadastro = (navigate)=>{
+    navigate("/cadastroAdmin");
+}

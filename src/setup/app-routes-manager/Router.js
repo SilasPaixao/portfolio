@@ -4,6 +4,7 @@ import { HomePage } from "../../pages/homePage/HomePage";
 import { AboutPage } from "../../pages/AboutPage/AboutPage";
 import { ArticlesPage } from "../../pages/ArticlesPage/ArticlesPage";
 import { AdmPage } from "../../pages/admPage/AdmPage";
+import { AdmRegister } from "../../pages/admPage/AdmRegister";
 import { LoginPage } from "../../pages/loginPage/LoginPage";
 import { ErrorPage } from "../../pages/errorPage/ErrorPage";
 
@@ -17,6 +18,7 @@ export const Router = ()=>{
             <Route exact path="/sobre" element={<AboutPage />} />
             <Route exact path="/artigos" element={<ArticlesPage />} />
             <Route exact path="/admin" element={<AdmPage />} />
+            <Route exact path="/cadastroAdmin" element={<AdmRegister />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route path="*" element={<ErrorPage />} />  
         </Routes>    

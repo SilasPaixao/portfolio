@@ -15,7 +15,7 @@ export const GeneralContext = ({children})=>{
     const {darkmode, changeDarkmode} = useSwitchDarkLightMode()
 
     const [logged, setLogged] = useState(false)
-    const [loggedAsAdmin, setLoggedAsAdmin] = useState(false)
+    const [loggedAsAdmin, setLoggedAsAdmin] = useState(true)
         
     return(
         <Context.Provider

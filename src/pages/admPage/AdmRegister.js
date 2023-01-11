@@ -11,12 +11,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
-import { goToAdminCadastro } from "../../setup/app-routes-manager/coordinator";
-import { useNavigate } from "react-router-dom";
 
 
-export const AdmPage = ()=>{
-    const navigate = useNavigate()
+export const AdmRegister = ()=>{
+
     const theme = useTheme()
     const {loggedAsAdmin, loadingPage} = useContext(Context)
 
@@ -24,6 +22,7 @@ export const AdmPage = ()=>{
         e.preventDefault()
         console.log("funciono")
     }
+
 
     return (
         loggedAsAdmin
@@ -44,7 +43,7 @@ export const AdmPage = ()=>{
                   <Typography component="h1" variant="h5" 
                   sx={{ color:theme.palette.text.primary }}
                   >
-                    Entrar como administrador
+                    Cadastrar administrador
                   </Typography>
                   <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -75,14 +74,12 @@ export const AdmPage = ()=>{
                       fullWidth
                       variant="contained"
                       sx={{ mt: 3, mb: 2 }}
-                      onClick={()=>{goToAdminCadastro(navigate)}}
                     >
-                      Entrar como Administrador
+                      Cadastrar Administrador
                     </Button>
                     <Grid container>
                       <Grid item xs>
-                        <Link href="#" variant="body2"
-                         onClick={()=>{alert("Como admin, você deve recuperar a senha no Firebase Server")}}
+                        <Link href="/" variant="body2"
                          sx={
                             {color:theme.palette.text.primary,
                              textDecoration:'none',
@@ -90,11 +87,11 @@ export const AdmPage = ()=>{
                             cursor:'pointer'}
                             }
                          >
-                          Esqueceu a senha?
+                          Voltar para o site
                         </Link>
                       </Grid>
                       <Grid item>
-                        <Link href="/cadastroAdmin" variant="body2" 
+                        <Link href="/admin" variant="body2" 
                          sx={
                             {color:theme.palette.text.primary,
                              textDecoration:'none',
@@ -102,16 +99,11 @@ export const AdmPage = ()=>{
                             cursor:'pointer'}
                             }
                          >
-                          {"Novo Administrador? Cadastre-se!"}{/* COLOCAR NO ROUTER */}
+                          {"Logar como Adm"}
                         </Link>
                       </Grid>
                     </Grid>
                   </Box>
-                  <Link href="/" 
-                  sx={{ color:theme.palette.text.primary, marginTop:'40px' }}
-                  >
-                    voltar ao site
-                  </Link>
                 </Box>
               </Container>
           
@@ -124,5 +116,4 @@ export const AdmPage = ()=>{
             </div>
         
     )
-
 }
