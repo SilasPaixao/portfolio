@@ -3,22 +3,23 @@ import { Context } from "./Context";
 import { ThemeProvider } from '@mui/material/styles';
 import { light } from "../../constants/theme/light";
 import { dark } from "../../constants/theme/dark";
+import { useSwitchDarkLightMode } from "../../commons/hooks/useSwitchDarkLightMode";
 
 
 
 export const GeneralContext = ({children})=>{
 
-    const [loadingPage, setLoadingPage] = useState(false)/*mudar para false*/
+    const [loadingPage, setLoadingPage] = useState(false)/*mudar para true*/
     
-    const LocalStorageDarkMode = localStorage.getItem('darkmode')
-    const [darkmode, setDarkmode] = useState(LocalStorageDarkMode?true:false)
+    
+    const {darkmode, changeDarkmode} = useSwitchDarkLightMode()
 
-    const [logged, setLogged] = useState(false)
+    const [logged, setLogged] = useState(true)
     const [loggedAsAdmin, setLoggedAsAdmin] = useState(true)
         
     return(
         <Context.Provider
-         value={{darkmode, setDarkmode, logged, setLogged, 
+         value={{logged, setLogged, darkmode, changeDarkmode,
          loggedAsAdmin, setLoggedAsAdmin, loadingPage, setLoadingPage}}
          >
             {darkmode

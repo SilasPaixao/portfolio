@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Header } from "../../commons/components/Header/Header";
+import React, { useContext } from "react";
 import { Context } from "../../setup/app-context-manager/Context";
 
 export const AdmPage = ()=>{
