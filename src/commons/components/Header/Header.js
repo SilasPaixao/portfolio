@@ -98,11 +98,20 @@ export const Header = () => {
                     <Typography textAlign="center">artigos</Typography>
                   </MenuItem>
 
-                  <MenuItem onClick={()=>{goToLogin(navigate); handleCloseNavMenu()}} sx={{backgroundColor:`${primaryColor}`,
-                    "&:hover":{backgroundColor:`${primaryColorHover}`}}} >
-                     <LoginIcon />
-                     <Typography textAlign="center">logIn</Typography>
-                  </MenuItem>
+                  {logged
+                    ?
+                    <MenuItem onClick={()=>{goToLogin(navigate); handleCloseNavMenu()}} sx={{backgroundColor:`${primaryColor}`,
+                      "&:hover":{backgroundColor:`${primaryColorHover}`}}} >
+                      <LogoutIcon />
+                      <Typography textAlign="center">LogOut</Typography>
+                    </MenuItem>
+                  :
+                    <MenuItem onClick={()=>{goToLogin(navigate); handleCloseNavMenu()}} sx={{backgroundColor:`${primaryColor}`,
+                      "&:hover":{backgroundColor:`${primaryColorHover}`}}} >
+                      <LoginIcon />
+                      <Typography textAlign="center">logIn</Typography>
+                    </MenuItem>
+                  }
 
             </Menu>
           </Box>
@@ -143,7 +152,7 @@ export const Header = () => {
                     color:'#fff', display: 'block', marginRight: '10px' }}
                     onClick={()=>{goToLogin(navigate)}}
                   >
-                    <LoginIcon /> logIn
+                    <LogoutIcon /> logOut
                   </Button>
                 :
                   <Button
@@ -152,7 +161,7 @@ export const Header = () => {
                     color:'#fff', display: 'block', marginRight: '10px' }}
                     onClick={()=>{goToLogin(navigate)}}
                   >
-                    <LogoutIcon /> logOut
+                    <LoginIcon /> logIn
                   </Button>
               }
           </Box>

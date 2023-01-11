@@ -3,6 +3,7 @@ import { LinkAdmin, Bar } from "./styles";
 import { IconButton } from "@mui/material";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { useNavigate } from "react-router-dom";
 import { goToAdmin } from "../../../setup/app-routes-manager/coordinator";
 import { Context } from "../../../setup/app-context-manager/Context";
@@ -18,7 +19,7 @@ export const UpBar = ()=>{
             <IconButton aria-label="Mudar tema" 
             onClick={()=>{changeDarkmode()}}>
                 {darkmode?
-                    <DarkModeIcon sx={{color:'#fff'}}/>
+                    <LightModeIcon sx={{color:'#fff'}}/>
                  :
                     <DarkModeIcon sx={{color:'#000'}}/>
                 }
