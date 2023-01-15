@@ -18,6 +18,10 @@ export const goToAdmin = (navigate)=>{
     navigate("/admin");
 }
 
+export const goToAdmDashboard = (navigate)=>{
+    navigate("/AdminDashboard");
+}
+
 export const goToAdminCadastro = (navigate)=>{
     navigate("/cadastroAdmin");
 }

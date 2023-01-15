@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Context } from "../../setup/app-context-manager/Context";
+import React from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,23 +10,24 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
-import { goToAdminCadastro } from "../../setup/app-routes-manager/coordinator";
-import { useNavigate } from "react-router-dom";
+import { useForm } from "../../commons/hooks/useForm";
+import { emailPassAuthentication } from "../../setup/firebase/admAuth/emailPassAuthentication";
 
 
 export const AdmPage = ()=>{
-    const navigate = useNavigate()
-    const theme = useTheme()
-    const {loggedAsAdmin, loadingPage} = useContext(Context)
+
+  const theme = useTheme()
+    
+    const {data, handleFormData, clear} = useForm({email:"", password:""})
+    const {login} = emailPassAuthentication(data)
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log("funciono")
+        login()
+        clear()
     }
 
     return (
-        loggedAsAdmin
-            ?
               <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -54,6 +54,8 @@ export const AdmPage = ()=>{
                       id="email"
                       label="Email do Adm"
                       name="email"
+                      value={data.email.value}
+                      onChange={handleFormData}
                       autoComplete="email"
                       autoFocus
                       sx={{ '.MuiInputLabel-root':{color:theme.palette.text.primary }}}
@@ -64,6 +66,8 @@ export const AdmPage = ()=>{
                       required
                       fullWidth
                       name="password"
+                      value={data.password.value}
+                      onChange={handleFormData}
                       label="Senha do Adm"
                       type="password"
                       id="password"
@@ -75,7 +79,6 @@ export const AdmPage = ()=>{
                       fullWidth
                       variant="contained"
                       sx={{ mt: 3, mb: 2 }}
-                      onClick={()=>{goToAdminCadastro(navigate)}}
                     >
                       Entrar como Administrador
                     </Button>
@@ -102,7 +105,7 @@ export const AdmPage = ()=>{
                             cursor:'pointer'}
                             }
                          >
-                          {"Novo Administrador? Cadastre-se!"}{/* COLOCAR NO ROUTER */}
+                          {"Novo Administrador? Cadastre-se!"}
                         </Link>
                       </Grid>
                     </Grid>
@@ -113,16 +116,7 @@ export const AdmPage = ()=>{
                     voltar ao site
                   </Link>
                 </Box>
-              </Container>
-          
-        
-        :
-            <div>
-                <p>
-                    é preciso ser administrado, faça login de administrador
-                </p>
-            </div>
-        
-    )
+              </Container>)
+         
 
 }

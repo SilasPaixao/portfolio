@@ -24,8 +24,8 @@ import { Context } from '../../../setup/app-context-manager/Context';
 
 
 
+
 export const Header = () => {
-  const {logged} = useContext(Context)
   const navigate = useNavigate()
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,14 +46,13 @@ export const Header = () => {
     setAnchorElUser(null);
   };
 
+
   return (
     <BarContainer>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={logoImgUrl} alt="logo" />
-          <Typography sx={{ color:'black', height:'36px', padding:'6px', verticalAlign:'center',
-           backgroundColor:`${primaryColor}`}}>Portfólio</Typography>
-          
+                    
           {/*For mobiles menu*/}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -98,20 +97,6 @@ export const Header = () => {
                     <Typography textAlign="center">artigos</Typography>
                   </MenuItem>
 
-                  {logged
-                    ?
-                    <MenuItem onClick={()=>{goToLogin(navigate); handleCloseNavMenu()}} sx={{backgroundColor:`${primaryColor}`,
-                      "&:hover":{backgroundColor:`${primaryColorHover}`}}} >
-                      <LogoutIcon />
-                      <Typography textAlign="center">LogOut</Typography>
-                    </MenuItem>
-                  :
-                    <MenuItem onClick={()=>{goToLogin(navigate); handleCloseNavMenu()}} sx={{backgroundColor:`${primaryColor}`,
-                      "&:hover":{backgroundColor:`${primaryColorHover}`}}} >
-                      <LoginIcon />
-                      <Typography textAlign="center">logIn</Typography>
-                    </MenuItem>
-                  }
 
             </Menu>
           </Box>
@@ -144,26 +129,7 @@ export const Header = () => {
                  artigos
               </Button>
 
-              {logged
-                ?
-                  <Button
-                    sx={{ my: 2, backgroundColor:`${primaryColor}`,
-                    "&:hover":{backgroundColor:`${primaryColorHover}`, color:'#000'},
-                    color:'#fff', display: 'block', marginRight: '10px' }}
-                    onClick={()=>{goToLogin(navigate)}}
-                  >
-                    <LogoutIcon /> logOut
-                  </Button>
-                :
-                  <Button
-                    sx={{ my: 2, backgroundColor:`${primaryColor}`,
-                    "&:hover":{backgroundColor:`${primaryColorHover}`, color:'#000'},
-                    color:'#fff', display: 'block', marginRight: '10px' }}
-                    onClick={()=>{goToLogin(navigate)}}
-                  >
-                    <LoginIcon /> logIn
-                  </Button>
-              }
+              
           </Box>
 
           {/*social menu*/}

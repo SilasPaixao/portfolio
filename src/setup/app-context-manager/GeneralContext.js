@@ -9,19 +9,12 @@ import { useSwitchDarkLightMode } from "../../commons/hooks/useSwitchDarkLightMo
 
 export const GeneralContext = ({children})=>{
 
-    const [loadingPage, setLoadingPage] = useState(false)/*mudar para true*/
-    
     
     const {darkmode, changeDarkmode} = useSwitchDarkLightMode()
 
-    const [logged, setLogged] = useState(false)
-    const [loggedAsAdmin, setLoggedAsAdmin] = useState(true)
-        
     return(
-        <Context.Provider
-         value={{logged, setLogged, darkmode, changeDarkmode,
-         loggedAsAdmin, setLoggedAsAdmin, loadingPage, setLoadingPage}}
-         >
+        <Context.Provider value={{darkmode, changeDarkmode}}>
+            
             {darkmode
             ?
                 <ThemeProvider theme={dark}>

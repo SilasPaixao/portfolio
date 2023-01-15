@@ -10,7 +10,8 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 70px;
+        margin-top: 35vh;
+        margin-bottom:35vh
     }
 
 `

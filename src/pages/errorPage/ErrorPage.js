@@ -3,16 +3,10 @@ import { Container } from "./styles";
 import SmsFailedIcon from '@mui/icons-material/SmsFailed';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import { Header } from "../../commons/components/Header/Header";
-import { Context } from "../../setup/app-context-manager/Context";
+import { Footer } from "../../commons/components/Footer/Footer";
 
 
 export const ErrorPage = ()=>{
-
-    const {loadingPage} = useContext(Context)
-    
-    if(loadingPage){
-        return <p>Carregando...</p>
-    }
 
 
     return <Container>
@@ -24,6 +18,10 @@ export const ErrorPage = ()=>{
                     <SmsFailedIcon />
                 </p>
             </div>
+            <Footer
+              title="Pessoal"
+              description="contato (email): silas.paixao873@gmail.com"
+            />
     
     </Container>
 }

@@ -6,7 +6,7 @@ export const dark = createTheme({
   palette: {
     
     primary: {
-        main: primaryColor,
+        main: primaryColor
     },
     secondary:{
         main: secondaryColor

@@ -1,93 +1,60 @@
-import React,{ useContext } from "react";
+import React from "react";
 import { Header } from "../../commons/components/Header/Header";
 import { UpBar } from "../../commons/components/UpBar/UpBar";
-import { Context } from "../../setup/app-context-manager/Context";
+import { Footer } from "../../commons/components/Footer/Footer";
+import {Posts} from "./components/Posts"
+import { Container } from "@mui/system";
+import { Grid, Paper, Typography } from "@mui/material";
+import ArticleIcon from '@mui/icons-material/Article';
 
 export const ArticlesPage = ()=>{
-    const {logged, loadingPage} = useContext(Context)
-    
-    if(loadingPage){
-        return <p>Carregando...</p>
-    }
-
+  
+    const projects = [
+        {
+          title: 'Featured post',
+          description:
+            'This is a wider card with supporting text below as a natural lead-in to additional content.',
+          image: 'https://source.unsplash.com/random',
+          linkText: 'Ver artigo…'
+        },
+        {
+          title: 'Post title',
+          description:
+            'This is a wider card with supporting text below as a natural lead-in to additional content.',
+          image: 'https://source.unsplash.com/random',
+          linkText: 'Ver artigo…'
+        },
+        {
+            title: 'Featured post',
+            description:
+              'This is a wider card with supporting text below as a natural lead-in to additional content.',
+            image: 'https://source.unsplash.com/random',
+            linkText: 'Ver artigo…'
+          },
+          
+      ];
 
     return (
-        logged?
-            <div>
-                <UpBar/>
-                <Header />
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-                <p>
-                    ArticlesPage
-                </p>
-            </div>
-        :
-            <div>
-                <Header />
-                <p>
-                    é preciso fazer login
-                </p>
-            </div>
-        
+        <div>
+            <UpBar/>
+            <Header />
+            
+            <Container maxWidth="xl">
+            <main>
+                <Paper sx={{mt:5}}>
+                  <Typography> <ArticleIcon /> ARTIGOS DE AUTORIA PRÓPRIA E PÚBLICOS </Typography>
+                </Paper>
+                <Grid container spacing={2}>
+                    {projects.map((post) => (
+                    <Posts key={post.title} post={post} />
+                    ))}
+                </Grid>
+            </main>
+            </Container>
+            <Footer
+                title="Pessoal"
+                description="contato (email): silas.paixao873@gmail.com"
+            />
+        </div>
     )
 }

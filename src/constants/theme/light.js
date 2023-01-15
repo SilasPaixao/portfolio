@@ -5,14 +5,14 @@ import { primaryColor, secondaryColor } from '../colorsPallet';
 export const light = createTheme({
   palette: {
     primary: {
-      main: primaryColor,
+      main: primaryColor
     },
     secondary:{
       main: secondaryColor
     },
     background: {
       default: '#fefefe',
-      paper: '#fefefe',
+      paper: '#fefefe'
     }
   }
     
