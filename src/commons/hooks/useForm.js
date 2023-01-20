@@ -9,10 +9,15 @@ export const useForm = (initialValue)=>{
         setData({...data, [name]:value})
     }
 
+    const handleFormFiles = (event)=>{
+        const {name, files} = event.target
+        setData({...data, [name]:files[0]})
+    }
+
     const clear = ()=>{
         setData(initialValue)
     }
 
 
-    return {data, handleFormData, clear}
+    return {data, handleFormData, handleFormFiles, setData, clear}
 }

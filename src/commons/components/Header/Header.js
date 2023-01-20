@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BarContainer, NeutralLink } from './styles';
 import Box from '@mui/material/Box';
+import HomeIcon from '@mui/icons-material/Home';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -8,19 +11,16 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import TabletMacIcon from '@mui/icons-material/TabletMac';
 import { logoImgUrl } from "../../../constants/logoImageURL";
 import { useNavigate } from 'react-router-dom';
-import { goToAbout, goToArticles, goToHome, goToLogin } from '../../../setup/app-routes-manager/coordinator';
+import { goToAbout, goToArticles, goToHome, } from '../../../setup/app-routes-manager/coordinator';
 import { cvUrl, githubUrl, linkedinUlr } from "../../../constants/contatos-cvURLs";
-import { primaryColor, primaryColorHover } from '../../../constants/colorsPallet';
 import { authorImgUrl } from "../../../constants/authorImageURL";
-import { Context } from '../../../setup/app-context-manager/Context';
+
 
 
 
@@ -109,23 +109,26 @@ export const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end' }}>
             
               <Button
-                sx={{ my: 2, display: 'block' }}
+                sx={{ my: 2, color:'white', display: 'block', display: 'flex'}}
                 onClick={()=>{goToHome(navigate)}}
               >
+                <HomeIcon />
                 home
               </Button>
 
               <Button
-                sx={{ my: 2, color:'white', display: 'block' }}
+                sx={{ my: 2, color:'white', display: 'block', ml:1, mr:1, display: 'flex' }}
                 onClick={()=>{goToAbout(navigate)}}
               >
+                <EmojiPeopleIcon />
                 <Typography>sobre</Typography>
               </Button>
 
               <Button
-                sx={{ my: 2, display: 'block' }}
+                sx={{ my: 2, color:'white', display: 'block', display: 'flex' }}
                 onClick={()=>{goToArticles(navigate)}}
               >
+                <HistoryEduIcon />
                  artigos
               </Button>
 

@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import {createPost} from "../../setup/firebase/admCRUD/createPost"
 import { emailPassAuthentication } from "../../setup/firebase/admAuth/emailPassAuthentication";
 import { useForm } from "../../commons/hooks/useForm";
 import { Posts } from "./components/Posts"
 import styled from "styled-components";
 import { Container } from "@mui/system";
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
     const VerticalContainer = styled.div`
         display: flex;
@@ -25,9 +25,8 @@ export const AdmDashboard = ()=>{
 
     const { data, handleFormData, clear } = useForm({
         projTitle:"",projMsgBody:"",
-        photoProj:"", projLink:"",
-        articleTitle:"", articleMsgBody:"",
-        photoArticle:"", articleLink:""
+        projLink:"", articleTitle:"",
+        articleMsgBody:"", articleLink:""
     })
 
     const projects = [
@@ -35,7 +34,7 @@ export const AdmDashboard = ()=>{
           title: 'Featured post',
           description:
             'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random'
+          image: 'https://source.unsplash.com/random/?html'
         }          
       ];
 
@@ -44,25 +43,29 @@ export const AdmDashboard = ()=>{
           title: 'Featured post',
           description:
             'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random'
+          image: 'https://source.unsplash.com/random/?html'
         },
         {
           title: 'Post title',
           description:
             'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random'
+          image: 'https://source.unsplash.com/random/?html'
         }
           
       ];
 
+    const [showRegisterProj, setShowRegister] = useState(true)
 
     
     const {IsAdmlogged, logout} = emailPassAuthentication()
 
-    const handleSubmit = (e)=>{
+
+
+    const handleSubmit = async (e)=>{
         e.preventDefault()
-        clear()
-        alert("Pronto!")
+        data.projTitle && createPost(data, showRegisterProj)
+        data.articleTitle && createPost(data, showRegisterProj)
+        alert("Pronto!") 
     }
 
     
@@ -70,25 +73,28 @@ export const AdmDashboard = ()=>{
     if(IsAdmlogged){
         return(
             <>
-            <button onClick={logout}>{'sair  <---]'}</button>
+            <HorizontalContainer>
+              <button onClick={logout}>{'SAIR  <---]'}</button>
+              <button onClick={()=>{clear();setShowRegister(true)}}>{'CADASTRAR PROJETO'}</button>
+              <button onClick={()=>{clear();setShowRegister(false)}}>{'CADASTRAR ARTIGO'}</button>
+            </HorizontalContainer>
             <VerticalContainer>
 
             <HorizontalContainer>
-
+              {showRegisterProj
+                ?
+                
                 <form onSubmit={handleSubmit}>
                     <VerticalContainer>
                     <h3>Cadastrar projeto</h3>
                     <label htmlFor='projTitle'>Título do projeto</label>
                     <input value={data.projTitle.value} onChange={handleFormData}
-                     maxLength={35} name='projTitle' />
+                     maxLength={35} name='projTitle' required/>
                 
                     <label htmlFor={'projMsgBody'}>Texto sobre o projeto</label>
                     <textarea value={data.projMsgBody.value} onChange={handleFormData}
                     rows={10} cols={40} name='projMsgBody' maxLength={168} style={{resize: 'none'}}></textarea>
                     
-                    <label htmlFor='photoProj'>Imagem do projeto</label>
-                    <input type='file' name='photoProj' onChange={handleFormData} />
-
                     <label htmlFor='projLink'>link do projeto</label>
                     <input value={data.projLink.value} onChange={handleFormData} name='projLink' />
 
@@ -96,28 +102,25 @@ export const AdmDashboard = ()=>{
 
                     </VerticalContainer>
                 </form>
-
+                :
                 <form onSubmit={handleSubmit}>
                     <VerticalContainer>
-                    <h3>Cadastrar projeto</h3>
+                    <h3>Cadastrar Artigo</h3>
                     <label htmlFor='articleTitle'>Título do artigo</label>
                     <input value={data.articleTitle.value} onChange={handleFormData}
-                     maxLength={35} name='articleTitle' />
+                     maxLength={35} name='articleTitle' required />
                 
                     <label htmlFor={'articleMsgBody'}>Texto sobre o artigo</label>
                     <textarea value={data.articleMsgBody.value} onChange={handleFormData}
                     rows={10} cols={40} name='articleMsgBody' maxLength={168} style={{resize: 'none'}}></textarea>
                     
-                    <label htmlFor='photoArticle'>Imagem do artigo</label>
-                    <input type='file' name='photoArticle' onChange={handleFormData} />
-
                     <label htmlFor='articleLink'>link do artigo</label>
                     <input value={data.articleLink.value} onChange={handleFormData} name='articleLink' />
 
                     <input type='submit' value='cadastrar' />
 
                     </VerticalContainer>
-                </form>
+                </form>}
             </HorizontalContainer>
             
             
@@ -165,4 +168,3 @@ export const AdmDashboard = ()=>{
     
 
 }
-//COLOCAR LIMITE NOS IMPUTS E AUMENTAR TAMANHO

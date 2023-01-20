@@ -5,7 +5,6 @@ import { AboutPage } from "../../pages/AboutPage/AboutPage";
 import { ArticlesPage } from "../../pages/ArticlesPage/ArticlesPage";
 import { AdmPage } from "../../pages/admPage/AdmPage";
 import { AdmRegister } from "../../pages/admPage/AdmRegister";
-import { LoginPage } from "../../pages/loginPage/LoginPage";
 import { ErrorPage } from "../../pages/errorPage/ErrorPage";
 import { AdmDashboard } from "../../pages/admPage/admDashboard";
 
@@ -21,7 +20,6 @@ export const Router = ()=>{
             <Route exact path="/admin" element={<AdmPage />} />
             <Route exact path="/cadastroAdmin" element={<AdmRegister />} />
             <Route exact path="/AdminDashboard" element={<AdmDashboard />} />
-            <Route exact path="/login" element={<LoginPage />} />
             <Route path="*" element={<ErrorPage />} />  
         </Routes>    
     </BrowserRouter>
