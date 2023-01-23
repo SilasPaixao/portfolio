@@ -6,6 +6,8 @@ import { Posts } from "./components/Posts"
 import styled from "styled-components";
 import { Container } from "@mui/system";
 import { Grid } from "@mui/material";
+import { getPosts } from "../../setup/firebase/admCRUD/getPosts";
+
 
     const VerticalContainer = styled.div`
         display: flex;
@@ -54,6 +56,8 @@ export const AdmDashboard = ()=>{
           
       ];
 
+    const {posts} = getPosts([])
+
     const [showRegisterProj, setShowRegister] = useState(true)
 
     
@@ -63,8 +67,9 @@ export const AdmDashboard = ()=>{
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
-        data.projTitle && createPost(data, showRegisterProj)
-        data.articleTitle && createPost(data, showRegisterProj)
+        await data.projTitle && createPost(data, showRegisterProj)
+        await data.articleTitle && createPost(data, showRegisterProj)
+        console.log('POSTS FICOU ASSIM', posts) //MOSTRA A POSTAGEM
         alert("Pronto!") 
     }
 

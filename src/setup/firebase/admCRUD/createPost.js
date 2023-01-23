@@ -2,9 +2,11 @@ import { app } from "../firebaseConfig"
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
 
-export const createPost = async (post, proj)=>{
 
-    console.log('postttts...', post)
+export const createPost = async (post, proj)=>{
+ 
+
+    console.log('post...', post)
 
     const db = getFirestore(app);
 
@@ -16,6 +18,7 @@ export const createPost = async (post, proj)=>{
               link: post.projLink,
               image: 'https://source.unsplash.com/random/?html',
               project:true
+              
             });
             console.log("Document written with ID: ", docRef.id);
           } catch (e) {
