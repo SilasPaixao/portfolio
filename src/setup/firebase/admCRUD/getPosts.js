@@ -18,7 +18,7 @@ export const getPosts = (initialState)=>{
             setPosts(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
 
           }catch(e){
-            setPosts('HOUVE ERROS NA POSTAGEM: ', e)
+            console.log('HOUVE ERROS NA POSTAGEM: ', e)
           }
         };
 

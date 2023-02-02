@@ -57,7 +57,7 @@ export const Posts = (props) => {
               {post.description}
             </Typography>
             <Link variant="subtitle1" href="#">
-              {post.linkText}
+              {post.link}
             </Link>
           </Grid>
         </Grid>

@@ -16,16 +16,17 @@ export const Posts = (props)=> {
         position: 'relative',
         backgroundColor: 'grey.800',
         color: '#fff',
-        mb: 4,
-        mt:10,
+        mb: 2,
+        mt:8,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: `url(${post.image})`,
+        minWidth:  '95vw'
       }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+      {<img style={{ display: 'none' }} src={post.image} alt={post.description} />}
       <Box
         sx={{
           position: 'absolute',
@@ -37,7 +38,7 @@ export const Posts = (props)=> {
         }}
       />
       <Grid container>
-        <Grid item>
+        <Grid item md={12}>
           <Box
             sx={{
               position: 'relative',
@@ -52,7 +53,7 @@ export const Posts = (props)=> {
               {post.description}
             </Typography>
             <Link variant="subtitle1" href="#">
-              {post.linkText}
+              {post.link}
             </Link>
           </Box>
         </Grid>

@@ -6,33 +6,17 @@ import {Posts} from "./components/Posts"
 import { Container } from "@mui/system";
 import { Grid, Paper, Typography } from "@mui/material";
 import ArticleIcon from '@mui/icons-material/Article';
+import { getPosts } from "../../setup/firebase/admCRUD/getPosts";
 
 export const ArticlesPage = ()=>{
   
-    const projects = [
-        {
-          title: 'Featured post',
-          description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random',
-          linkText: 'Ver artigo…'
-        },
-        {
-          title: 'Post title',
-          description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random',
-          linkText: 'Ver artigo…'
-        },
-        {
-            title: 'Featured post',
-            description:
-              'This is a wider card with supporting text below as a natural lead-in to additional content.',
-            image: 'https://source.unsplash.com/random',
-            linkText: 'Ver artigo…'
-          },
-          
-      ];
+  
+    const {posts} = getPosts([]);
+
+    const articles = posts.filter((article)=>{
+      return article.article === true
+    });
+
 
     return (
         <div>
@@ -45,7 +29,7 @@ export const ArticlesPage = ()=>{
                   <Typography> <ArticleIcon /> ARTIGOS DE AUTORIA PRÓPRIA E PÚBLICOS </Typography>
                 </Paper>
                 <Grid container spacing={2}>
-                    {projects.map((post) => (
+                    {articles.map((post) => (
                     <Posts key={post.title} post={post} />
                     ))}
                 </Grid>

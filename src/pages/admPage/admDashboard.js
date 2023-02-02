@@ -31,32 +31,17 @@ export const AdmDashboard = ()=>{
         articleMsgBody:"", articleLink:""
     })
 
-    const projects = [
-        {
-          title: 'Featured post',
-          description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random/?html'
-        }          
-      ];
 
-      const articles = [
-        {
-          title: 'Featured post',
-          description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random/?html'
-        },
-        {
-          title: 'Post title',
-          description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-          image: 'https://source.unsplash.com/random/?html'
-        }
-          
-      ];
+    const {posts} = getPosts([]);
 
-    const {posts} = getPosts([])
+    const articles = posts.filter((article)=>{
+      return article.article === true
+    });
+
+    const projects = posts.filter((project)=>{
+      return project.project === true
+    });
+
 
     const [showRegisterProj, setShowRegister] = useState(true)
 
@@ -67,13 +52,16 @@ export const AdmDashboard = ()=>{
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
+
         await data.projTitle && createPost(data, showRegisterProj)
         await data.articleTitle && createPost(data, showRegisterProj)
-        console.log('POSTS FICOU ASSIM', posts) //MOSTRA A POSTAGEM
+       
+         console.log('POSTS FICOU ASSIM', posts) //MOSTRA A POSTAGEM
+       
+
         alert("Pronto!") 
     }
 
-    
         
     if(IsAdmlogged){
         return(
@@ -98,7 +86,7 @@ export const AdmDashboard = ()=>{
                 
                     <label htmlFor={'projMsgBody'}>Texto sobre o projeto</label>
                     <textarea value={data.projMsgBody.value} onChange={handleFormData}
-                    rows={10} cols={40} name='projMsgBody' maxLength={168} style={{resize: 'none'}}></textarea>
+                    rows={10} cols={40} name='projMsgBody' maxLength={48} style={{resize: 'none'}}></textarea>
                     
                     <label htmlFor='projLink'>link do projeto</label>
                     <input value={data.projLink.value} onChange={handleFormData} name='projLink' />
@@ -117,7 +105,7 @@ export const AdmDashboard = ()=>{
                 
                     <label htmlFor={'articleMsgBody'}>Texto sobre o artigo</label>
                     <textarea value={data.articleMsgBody.value} onChange={handleFormData}
-                    rows={10} cols={40} name='articleMsgBody' maxLength={168} style={{resize: 'none'}}></textarea>
+                    rows={10} cols={40} name='articleMsgBody' maxLength={48} style={{resize: 'none'}}></textarea>
                     
                     <label htmlFor='articleLink'>link do artigo</label>
                     <input value={data.articleLink.value} onChange={handleFormData} name='articleLink' />
@@ -135,7 +123,7 @@ export const AdmDashboard = ()=>{
                       <main>
                         <Grid container spacing={2}>
                             {projects.map((post) => (
-                            <Posts key={post.title} post={post} />
+                            <Posts key={post} post={post} />
                             ))}
                         </Grid>
                       </main>
@@ -148,7 +136,7 @@ export const AdmDashboard = ()=>{
                       <main>
                         <Grid container spacing={2}>
                             {articles.map((post) => (
-                            <Posts key={post.title} post={post} />
+                            <Posts key={post} post={post} />
                             ))}
                         </Grid>
                       </main>

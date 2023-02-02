@@ -5,35 +5,22 @@ import { Header } from "../../commons/components/Header/Header";
 import { Footer } from "../../commons/components/Footer/Footer";
 import { AboutFeaturedCard } from "./components/AboutFeaturedCard";
 import { Posts } from "./components/Posts";
+import { getPosts } from "../../setup/firebase/admCRUD/getPosts";
 
 
 
 export const HomePage = () => {
 
-  const projects = [
-    {
-      title: 'Featured post',
-      description:
-        'This is a wider card with supporting text below as a natural lead-in to additional content.',
-      image: 'https://source.unsplash.com/random',
-      linkText: 'Ver projeto…'
-    },
-    {
-      title: 'Post title',
-      description:
-        'This is a wider card with supporting text below as a natural lead-in to additional content.',
-      image: 'https://source.unsplash.com/random',
-      linkText: 'Ver projeto…'
-    },
-    {
-      title: 'Featured post',
-      description:
-        'This is a wider card with supporting text below as a natural lead-in to additional content.',
-      image: 'https://source.unsplash.com/random',
-      linkText: 'Ver projeto…'
-    },
+ 
 
-  ];
+  const {posts} = getPosts([]);
+
+  const projects = posts.filter((project)=>{
+    return project.project === true
+  });
+
+
+
 
 
   return <div>

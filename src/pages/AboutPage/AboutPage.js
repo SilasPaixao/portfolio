@@ -62,7 +62,7 @@ export const AboutPage = () => {
                     <Typography sx={{ textAlign: 'justify', }}>
                         <h3>Olá, eu sou o Silas.</h3>
                         <br />
-                        Simplesmente: eu faço coisas bonitas com reactJs.<br />
+                        Em suma: Eu faço coisas bonitas com reactJs.<br />
                         <br />
                         Sou desenvolvedor front-end jr. Anteriormente, eu estudava física (bacharelado), mas percebi que a programação é minha aspiração, aliás desde os 14 anos estou envolvido com coisas de tecnologia em geral.
                         <br />

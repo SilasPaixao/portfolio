@@ -1,12 +1,11 @@
 import { app } from "../firebaseConfig"
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
+import { articlesBg, projectsBg } from "../../../constants/backgrounds";
 
 
 export const createPost = async (post, proj)=>{
  
-
-    console.log('post...', post)
 
     const db = getFirestore(app);
 
@@ -16,7 +15,7 @@ export const createPost = async (post, proj)=>{
               title: post.projTitle,
               description: post.projMsgBody,
               link: post.projLink,
-              image: 'https://source.unsplash.com/random/?html',
+              image: `${projectsBg}`,
               project:true
               
             });
@@ -30,7 +29,7 @@ export const createPost = async (post, proj)=>{
                 title: post.articleTitle,
                 description: post.articleMsgBody,
                 link: post.articleLink,
-                image: 'https://source.unsplash.com/random/?html',
+                image: `${articlesBg}`,
                 article:true
             });
             console.log("Document written with ID: ", docRef.id);

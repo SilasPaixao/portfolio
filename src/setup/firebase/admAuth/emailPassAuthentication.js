@@ -12,11 +12,13 @@ export const emailPassAuthentication = (user)=>{
     const auth = getAuth(app);
 
     const register = ()=>{
+        // eslint-disable-next-line
         const {email, password} = user
 
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
+            // eslint-disable-next-line
             const user = userCredential.user;
             alert('Administrador cadastrado com sucesso!')
             goToAdmin(navigate)
@@ -24,6 +26,7 @@ export const emailPassAuthentication = (user)=>{
         })
         .catch((error) => {
             const errorCode = error.code;
+            // eslint-disable-next-line
             const errorMessage = error.message;
             alert(`ERROR: ${errorCode}`)
             
@@ -39,11 +42,13 @@ export const emailPassAuthentication = (user)=>{
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
+            // eslint-disable-next-line
             const user = userCredential.user;
             goToAdmDashboard(navigate)
         })
         .catch((error) => {
             const errorCode = error.code;
+            // eslint-disable-next-line
             const errorMessage = error.message;
             alert(`ERROR: ${errorCode}`)
             

@@ -109,7 +109,7 @@ export const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'flex-end' }}>
             
               <Button
-                sx={{ my: 2, color:'white', display: 'block', display: 'flex'}}
+                sx={{ my: 2, color:'white', display: 'flex'}}
                 onClick={()=>{goToHome(navigate)}}
               >
                 <HomeIcon />
@@ -117,7 +117,7 @@ export const Header = () => {
               </Button>
 
               <Button
-                sx={{ my: 2, color:'white', display: 'block', ml:1, mr:1, display: 'flex' }}
+                sx={{ my: 2, color:'white', ml:1, mr:1, display: 'flex' }}
                 onClick={()=>{goToAbout(navigate)}}
               >
                 <EmojiPeopleIcon />
@@ -125,7 +125,7 @@ export const Header = () => {
               </Button>
 
               <Button
-                sx={{ my: 2, color:'white', display: 'block', display: 'flex' }}
+                sx={{ my: 2, color:'white', display: 'flex' }}
                 onClick={()=>{goToArticles(navigate)}}
               >
                 <HistoryEduIcon />

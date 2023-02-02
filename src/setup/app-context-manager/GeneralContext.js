@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Context } from "./Context";
 import { ThemeProvider } from '@mui/material/styles';
 import { light } from "../../constants/theme/light";
