@@ -52,8 +52,8 @@ export const Posts = (props)=> {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.link}
+            <Link variant="subtitle1" href={post.link}>
+              Ler artigo
             </Link>
           </Box>
         </Grid>
