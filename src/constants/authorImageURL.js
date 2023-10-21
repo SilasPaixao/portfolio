@@ -1,0 +1,1 @@
+export const authorImgUrl = "https://i.postimg.cc/DyzJqHyC/author.jpg";

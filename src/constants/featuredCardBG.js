@@ -1,0 +1,1 @@
+export const featuredcardBg = 'https://i.postimg.cc/qR7LJ8cb/bg2.png';
