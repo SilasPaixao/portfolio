@@ -2,7 +2,7 @@ import React from 'react';
 import { BarContainer, NeutralLink } from './styles';
 import Box from '@mui/material/Box';
 import HomeIcon from '@mui/icons-material/Home';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -90,7 +90,7 @@ export const Header = () => {
                   </MenuItem>
 
                   <MenuItem onClick={()=>{goToAbout(navigate); handleCloseNavMenu()}}>
-                    <Typography textAlign="center">sobre</Typography>
+                    <Typography textAlign="center">projetos</Typography>
                   </MenuItem>
 
                   <MenuItem onClick={()=>{goToArticles(navigate); handleCloseNavMenu()}}>
@@ -120,8 +120,8 @@ export const Header = () => {
                 sx={{ my: 2, color:'white', ml:1, mr:1, display: 'flex' }}
                 onClick={()=>{goToAbout(navigate)}}
               >
-                <EmojiPeopleIcon />
-                <Typography>sobre</Typography>
+                <AssignmentIcon />
+                <Typography>projetos</Typography>
               </Button>
 
               <Button
@@ -171,7 +171,7 @@ export const Header = () => {
                   </MenuItem>
                 </NeutralLink>
 
-                <NeutralLink href={cvUrl}>
+                <NeutralLink href={cvUrl} target="_blank">
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">CV</Typography>
                   </MenuItem>

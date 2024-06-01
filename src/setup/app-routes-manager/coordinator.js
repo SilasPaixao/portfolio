@@ -3,7 +3,7 @@ export const goToHome = (navigate)=>{
 }
 
 export const goToAbout = (navigate)=>{
-    navigate("/sobre");
+    navigate("/projetos");
 }
 
 export const goToArticles = (navigate)=>{

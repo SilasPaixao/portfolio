@@ -1,0 +1,48 @@
+#sidebar{
+    background-color: #111;
+    border-radius: 10px;
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 10px 0;
+    width: 50vh;
+    justify-self: flex-end;
+
+    .git-linkedin{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        img[alt="github"]{
+            margin-left: 8px;
+        }
+    }
+
+    .info-card{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        *{
+            margin:0;
+            padding:0;
+        }
+        
+        h3{
+            margin-left: 0.5em;
+        }
+    }
+
+   
+    .btn {
+        padding: 1rem 1.2rem;
+        color: #FFF;
+        background: linear-gradient(90deg, rgba(250,82,82,1) 0%, rgba(221,36,118,1) 98%);
+        text-decoration: "none";
+        border-radius: 3rem;
+    
+    }
+}

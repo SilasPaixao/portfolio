@@ -1,13 +1,15 @@
+/* eslint-disable react/jsx-no-target-blank */
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable react/style-prop-object */
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import { featuredcardBg } from "../../../constants/featuredCardBG";
+import { featuredcardBg } from '../../../constants/featuredCardBG';
+import Sidebar from './SideBar'
 
-
-export const AboutFeaturedCard = ()=> {
+export const AboutFeaturedCard = () => {
 
   return (
     <Paper
@@ -34,22 +36,19 @@ export const AboutFeaturedCard = ()=> {
           backgroundColor: 'rgba(0,0,0,.3)',
         }}
       />
-      <Grid container sx={{justifyContent:'flex-end'}}>
+      <Grid container sx={{ justifyContent: 'flex-end' }}>
         <Grid item md={6}>
           <Box
             sx={{
               position: 'relative',
+              right: '-1.4em',
               p: { xs: 3, md: 6 },
               pr: { md: 0 },
             }}
-          > 
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              Olá! <br /> Bem vindo(a)<br /> Eu sou o Silas.
-            </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              Sou desenvolvedor back-end...
-            </Typography>
-            <Link variant="subtitle1" href="/sobre">
+          >
+            <Sidebar />
+
+            <Link variant="subtitle1" href="#more">
               Continue lendo...
             </Link>
           </Box>

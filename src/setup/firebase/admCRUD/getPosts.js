@@ -24,7 +24,7 @@ export const useGetPosts = (initialState)=>{
 
         fetchPosts();
 
-    },[posts])
+    },[])
     
   return {posts}
 

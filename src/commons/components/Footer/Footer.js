@@ -4,10 +4,9 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
-const Copyright = ()=> {
+const Copyright = () => {
   return (
     <Typography variant="body2" align="center">
-      {'Copyright © '}
       <Link href="#">
         Portifólio - Silas Paixão
       </Link>{' '}
@@ -21,7 +20,7 @@ export const Footer = (props) => {
   const { description, title } = props;
 
   return (
-    <Box component="footer" sx={{py: 6}}>
+    <Box component="footer" sx={{ py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
           {title}
